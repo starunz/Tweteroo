@@ -33,5 +33,5 @@ app.post('/tweets', (req, res) => {
 }); 
 
 app.get('/tweets', (req, res) => {
-    res.send(tweets.slice(0,10));
+    res.send(tweets.slice(-10));
 });
