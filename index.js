@@ -29,10 +29,10 @@ app.post('/tweets', (req, res) => {
 
     tweets.push({...tweet, avatar:user[0].avatar});
     console.log(user)
-
+    console.log(tweets);
     res.send('ok');
 }); 
 
 app.get('/tweets', (req, res) => {
-    res.send(tweets);
+    res.send(tweets.slice(0,10));
 });
