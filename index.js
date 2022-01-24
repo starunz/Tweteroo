@@ -8,13 +8,18 @@ app.use(cors());
 
 app.listen(5000);
 
-const user = [];
+let user = [];
 const tweets = [];
 
 app.post('/sign-up', (req, res) => {
     const signUpUser = req.body;
 
-    user.push(signUpUser);
+    if (user.length === 0) {
+        user.push(signUpUser);
+    } 
+    else {
+        user = [signUpUser];
+    }
 
     res.send('ok');
 });
@@ -23,6 +28,7 @@ app.post('/tweets', (req, res) => {
     const tweet = req.body;
 
     tweets.push({...tweet, avatar:user[0].avatar});
+    console.log(user)
 
     res.send('ok');
 }); 
